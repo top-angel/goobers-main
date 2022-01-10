@@ -1,0 +1,90 @@
+@import 'utils/essentials';
+@import 'utils/responsive_btns';
+
+.goobery__factory {
+    position: relative;
+    background: #121214;
+    padding-bottom: 20px;
+
+    .goobery__header {
+        z-index: 5;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -30px;
+        background: url("../images/goobery_header.svg");
+        width: 540px;
+        height: 93px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        outline: none;
+        border: none;
+        margin-top: 7px;
+        filter: drop-shadow(11px 8px #000000);
+
+        p {
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 50px;
+            -webkit-text-stroke-width: 2.2px;
+            -webkit-text-stroke-color: #000000;
+            letter-spacing: -1px;
+            -webkit-text-fill-color: #ffffff;
+            font-family: "Black Han Sans", sans-serif;
+            position: relative;
+            filter: drop-shadow(0px 4px 0px rgba(107, 6, 0, 0.33));
+        }
+
+        // Add responsive buttons
+        @include responsiveBtn();
+    }
+
+    .goobery__carousel {
+        position: relative;
+        display: flex;
+        height: calc(950px);
+        align-items: flex-end;
+        @include breakpoint(xs) {
+            height: calc(634px);
+        }
+
+        .goobery__carousel--slider {
+            background: url("../images/goobery/goobery.jpg") 0px 0px / cover repeat white;
+            width: 100%;  
+            position: absolute; 
+            top: 0px; 
+            left: 0px; 
+            height: 950px;
+            @include breakpoint(xs) {
+                height: 634px;
+                background: url("../images/goobery/goobery_mobile.jpg") 0px 0px / cover repeat white;
+            }
+        }
+    }
+    .view__all--btn {
+        z-index: 10;
+        position: relative;
+        background: url("../images/viewall.svg");
+        width: 236px;
+        height: 48px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        outline: none;
+        border: none;
+        text-transform: uppercase;
+        text-decoration: none;
+        filter: drop-shadow(11px 8px #000000);
+        display: block;
+        text-align: center;
+        line-height: 55px;
+        margin: auto;
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 24px;
+        font-size: 1.5rem;
+        color: #000;
+        margin-top: 20px;
+    }
+}

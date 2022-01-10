@@ -1,0 +1,378 @@
+@import 'utils/essentials';
+@import 'utils/responsive_btns';
+
+.RoadMapPage {
+    margin: 40px 0;
+}
+.RoadMapTitle {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 48px;
+    display: block;
+    margin: 0;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    @media only screen and (max-width: 968px) {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-size: 28px;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+}
+
+.ProgressMap {
+    left: 0;
+    top: -22px;
+    position: absolute;
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 48px;
+    display: block;
+    margin: 0;
+    color: #000; 
+}
+
+.RoadMapBox {
+    list-style: none;
+    position: relative;
+    margin-bottom: 0;
+    background: url("../images/background_effects/Roadmap.svg");
+    background-repeat: no-repeat;
+    padding: 40px 120px 40px 120px;
+    background-size: cover;
+    max-width: 1260px;
+    margin: auto;
+    margin-bottom: 40px;
+    z-index: 15;
+    @include breakpoint(xs) {
+        padding: 40px 25px 40px 25px;
+        background-position-x: -111px;
+    }
+    @include breakpoint(lg) {
+        &::before {
+            content: "";
+            position: absolute;
+            background: url("../images/background_effects/RoadMapBrain.png");
+            width: 143.2px;
+            height: 191.99px;
+            background-size: cover;
+            top: 34px;
+            left: 0;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            background: url("../images/background_effects/Rock.png");
+            width: 214px;
+            height: 179px;
+            background-size: cover;
+            bottom: 34px;
+            right: 0;
+        }
+    }
+    .header__title {
+        background: url("../images/background_effects/RoadmapHeader.svg");
+        width: 545px;
+        height: 101px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: -45px auto 40px auto;
+        filter: drop-shadow(11px 8px #000000);
+
+        p {
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 50px;
+            -webkit-text-stroke-width: 2.2px;
+            -webkit-text-stroke-color: #000000;
+            letter-spacing: -1px;
+            -webkit-text-fill-color: #ffffff;
+            font-family: "Black Han Sans", sans-serif;
+            position: relative;
+            margin-top: -7px;
+            filter: drop-shadow(0px 4px 0px rgba(107, 6, 0, 0.33));
+        }
+        // Add responsive buttons
+        @include responsiveBtn();
+        @include breakpoint(phone_xxxs) {
+            margin-left: -19px;
+        }
+    }
+    .RoadMapBoxTitle {
+        font-family: "Black Han Sans", sans-serif;
+        font-size: 48px;
+        display: block;
+        margin: 0;
+        text-align: center;
+        color: #000;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .MapProgress {
+        font-family: "Black Han Sans", sans-serif;
+        color: #000;
+        font-size: 48px;
+        font-size: 3rem;
+        line-height: 30px;        
+    }
+    .RoadMap {
+        list-style: none;
+        position: relative;
+        margin-bottom: 0;
+    
+        &:before {
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 41px;
+            background:url("../images/background_effects/timeline.png");
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        >li {
+            margin-bottom: 106px;
+            position: relative;
+            width: 50%;
+            float: left;
+            clear: left;
+    
+            &:before {
+                content: " ";
+                display: table;
+            }
+    
+            &:after {
+                content: " ";
+                display: table;
+                clear: both;
+            }
+    
+            >.RoadMapPanel {
+                width: 402px;
+                float: left;
+                background: url('../images/background_effects/RoadmapStage.png');
+                position: relative;
+                padding: 0 30px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                display: -moz-box;
+                display: flex;
+                -moz-box-orient: vertical;
+                -moz-box-direction: normal;
+                flex-direction: column;
+                -moz-box-pack: center;
+                justify-content: center;
+                min-height: 224px;
+
+                @include breakpoint(xs) {
+                    width: 100%;
+                    padding: 0 25px;
+                }
+
+                .CheckIcon {
+                    position: absolute;
+                    width: 109px;
+                    height: 86px;
+                    background: url('../images/background_effects/CheckRoadMap.png');
+                    top: -34px;
+                    right: -12px;
+                    @include breakpoint(xs) {
+                        top: 2px;
+                        right: -12px;
+                        background-size: cover;
+                        width: 51px;
+                        height: 40px;
+                    }
+                }
+
+                .WorkingIcon {
+                    position: absolute;
+                    width: 110px;
+                    height: 42px;
+                    background: url('../images/background_effects/MinusRoadMap.png');
+                    top: -15px;
+                    right: -12px;
+                    @include breakpoint(xs) {
+                        top: 2px;
+                        right: -12px;
+                        background-size: cover;
+                        width: 52px;
+                        height: 19px;
+                    }
+                }
+    
+                .RoadMapHeader {
+                    font-family: "Black Han Sans", sans-serif;
+                    color: #000;
+                    font-size: 24px;
+                    font-size: 1.5rem;
+                    line-height: 30px;
+                    @media only screen and (max-width: 1168px) {
+                        @include font-size(18);
+                    }  
+                    @media only screen and (max-width: 475px) {
+                        text-align: center;
+                    }  
+                }
+            }
+    
+            >.MapCircle {
+                width: 63px;
+                height: 23px;
+                line-height: 50px;
+                position: absolute;
+                top: 19px;
+                right: -25px;
+                z-index: 1;
+                background: url("../images/background_effects/timelinesmall.png");
+                border-radius: 50%;
+                background-size: contain;
+                @include breakpoint(xs) {
+                    display: none;
+                }
+            }
+    
+            &:nth-child(2) {
+                margin-top: 85px;
+            }
+        }
+    
+        >li.MapInverted {
+            >.RoadMapPanel {
+                float: right;
+    
+                &:before {
+                    border-left-width: 0;
+                    border-right-width: 12px;
+                    left: -13px;
+                    right: auto;
+                }
+    
+                &:after {
+                    border-left-width: 0;
+                    border-right-width: 11px;
+                    left: -11px;
+                    right: auto;
+                }
+            }
+    
+            float: right;
+            clear: right;
+            margin-top: 30px;
+            margin-bottom: 70px;
+    
+            >.MapCircle {
+                left: 20px;
+            }
+        }        
+    }
+    
+    .RoadMapBody {
+        >p {
+            padding: 20px;
+            margin-bottom: 0;
+    
+            + {
+                p {
+                    margin-top: 5px;
+                }
+            }
+        }
+    
+        >ul {
+            padding: 20px;
+            margin-bottom: 0;
+        }
+        .RoadMapAchievements {
+            .Achievement {
+                .AchievementDescription {
+                    .AchievementList {
+                        list-style-type: none;
+                        @media only screen and (max-width: 468px) {
+                            padding-inline-start: 0;
+                        }
+                        li {
+                            p {
+                                margin:0;
+                                margin-bottom: 2.5px;
+                                color: #000;
+                                @include font-size(14);
+                                line-height: 17px;
+                                @media only screen and (max-width: 475px) {
+                                    margin-bottom: 7.5px;
+                                    font-size: 14px;
+                                }  
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    ul.RoadMap {
+        &:before {
+            left: -30px !important;
+        }
+
+        >li {
+            margin-bottom: 25px !important;
+            margin-top: 25px !important;
+            position: relative;
+            width: 100% !important;
+            float: left;
+            clear: left;
+
+            >.RoadMapPanel {
+                width: calc(100% - 46px);
+                width: -moz-calc(100% - 46px);
+                width: -webkit-calc(100% - 46px);
+                float: right;
+
+                &:before {
+                    border-left-width: 0;
+                    border-right-width: 13px;
+                    left: -13px;
+                    right: auto;
+                }
+
+                &:after {
+                    border-left-width: 0;
+                    border-right-width: 11px;
+                    left: -11px;
+                    right: auto;
+                }
+            }
+
+            >.MapCircle {
+                left: 8px;
+                margin-left: 0;
+                top: 18px;
+            }
+        }
+    }
+
+    .RoadMap {
+        >li.MapInverted {
+            float: left;
+            clear: left;
+            margin-top: 0px;
+            margin-bottom: 25px;
+
+            >.MapCircle {
+                left: 8px;
+            }
+        }
+    }
+}

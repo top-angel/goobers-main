@@ -1,0 +1,382 @@
+@import "utils/essentials";
+@import "utils/responsive_btns";
+
+.goober__rarity {
+  background: radial-gradient(50% 50% at 50% 50%, #c3d1dd 25.52%, #2e3740 100%);
+  position: relative;
+  z-index: 5;
+  padding-bottom: 60px;
+
+  // &::after {
+  //   position: absolute;
+  //   content: "";
+  //   background: url("../images/rarityarrows.svg");
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  //   width: 100%;
+  //   height: 100%;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   top: 0;
+  //   z-index: -1;
+  //   mix-blend-mode: overlay;
+  // }
+
+  .background__effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    .effect {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      .background__effect {
+        position: absolute;
+        content: "";
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: -1;
+        mix-blend-mode: overlay;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .container__grid {
+    max-width: 1268px;
+    margin: auto;
+
+    .rarity__header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .header__title {
+        background: url("../images/rarityheader.svg");
+        width: 545px;
+        height: 101px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: -20px;
+        filter: drop-shadow(11px 8px #000000);
+
+        p {
+          font-size: 40px;
+          font-size: 2.5rem;
+          line-height: 50px;
+          -webkit-text-stroke-width: 2.2px;
+          -webkit-text-stroke-color: #000000;
+          letter-spacing: -1px;
+          -webkit-text-fill-color: #ffffff;
+          font-family: "Black Han Sans", sans-serif;
+          position: relative;
+          margin-top: -7px;
+          filter: drop-shadow(0px 4px 0px rgba(0, 107, 69, 0.56));
+        }
+
+        // Add responsive buttons
+        @include responsiveBtn();
+      }
+
+      .goobers__left {
+        background: #000000;
+        border: 4px solid #47f066;
+        padding: 10px;
+        min-width: 300px;
+        max-width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 10px;
+
+        .goobers__left--title {
+          font-family: "Black Han Sans", sans-serif;
+          font-size: 24px;
+          font-size: 1.5rem;
+          line-height: 30px;
+        }
+
+        .goobers__left--subtitle {
+          font-size: 18px;
+          font-size: 1.125rem;
+          font-weight: 500;
+          line-height: 21.6px;
+        }
+      }
+    }
+
+    .rarity__body--grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      //background: url("../images/raritybox.svg");
+
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='1268' height='510' viewBox='0 0 1268 510' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.97394 502.704L172.564 38.7327L1261 7.20569V466.015L9.97394 502.704Z' fill='white' stroke='%23C3D1DD' stroke-width='14'/%3E%3C/svg%3E");
+
+      gap: 40px;
+      width: 1200px;
+      height: 525px;
+
+      padding: 82px 188px 42px 188px;
+
+      background-repeat: no-repeat;
+      filter: drop-shadow(11px 8px #000000);
+      background-size: contain;
+      margin-top: 40px;
+      margin: auto;
+
+      .attributes__column {
+        display: flex;
+      }
+
+      .body__goober--randomizer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .goober__ilustration,
+        .goober__ilustration video {
+          width: 250px;
+        }
+
+        .goober__randomizer--btn {
+          font-family: "Black Han Sans", sans-serif;
+          background: url("../images/randomizebtn.svg");
+          width: 255px;
+          height: 46px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          outline: none;
+          border: none;
+          text-transform: uppercase;
+          margin-top: 7px;
+          filter: drop-shadow(11px 8px #000000);
+
+          p {
+            font-size: 24px;
+            font-size: 1.5rem;
+            color: #000000;
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .body__goober--attributes {
+        //background: url("../images/rarityattributes.svg");
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='270' height='335' viewBox='0 0 270 335' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 328.5V6L264.5 24V296L5 328.5Z' fill='%23E8E8E8' stroke='%23C3D1DD' stroke-width='10'/%3E%3C/svg%3E");
+        width: 289px;
+        height: 358px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding: 40px 25px 25px 25px;
+        margin-left: 20px;
+
+        .dropdown__attributes {
+          width: 100%;
+          position: relative;
+
+          .dropdown__attributes--toggler {
+            position: relative;
+            background: #c3d1dd;
+            border: 2px solid #708292;
+            width: 100%;
+            margin-bottom: 10px;
+            cursor: pointer;
+
+            .dropdown__title {
+              text-transform: uppercase;
+              font-family: "Black Han Sans", sans-serif;
+              font-size: 18px;
+              font-size: 1.125rem;
+              line-height: 26px;
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: #000000;
+              letter-spacing: -1px;
+              -webkit-text-fill-color: #ffffff;
+              text-align: center;
+              filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.23));
+            }
+          }
+
+          .dropdown {
+            top: 0;
+            position: absolute;
+            display: none;
+            max-height: 160px;
+            overflow-y: scroll;
+          }
+
+          .dropdown__toggled {
+            z-index: 9;
+            display: block !important;
+            background: #708292;
+            top: 31px;
+            width: 100%;
+            padding: 10px 30px;
+          }
+        }
+
+        // ul {
+        //     color: #000000;
+        //     padding-inline-start: 50px;
+        //     li {
+        //         p {
+        //             font-size: 18px;
+        //             font-size: 1.125rem;
+        //             font-weight: 400;
+        //         }
+        //     }
+        // }
+      }
+
+      .body__goober--rarities {
+        .action__btn {
+          width: 285px;
+          height: 64px;
+          background-repeat: no-repeat !important;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          border: none;
+          outline: none;
+          margin-bottom: 15px;
+          filter: drop-shadow(11px 8px #000000);
+
+          p {
+            text-transform: uppercase;
+            font-family: "Black Han Sans", sans-serif;
+            font-size: 24px;
+            font-size: 1.5rem;
+            line-height: 30px;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: #000000;
+            letter-spacing: -1px;
+            -webkit-text-fill-color: #ffffff;
+          }
+        }
+
+        .common__btn {
+          background: url("../images/common_rarity.svg");
+
+          p {
+            filter: drop-shadow(0px 2px 0px rgba(59, 80, 95, 0.48));
+          }
+        }
+
+        .rare__btn {
+          background: url("../images/rare.svg");
+
+          p {
+            filter: drop-shadow(0px 2px 0px rgba(59, 80, 95, 0.48));
+          }
+        }
+
+        .uber__rare__btn {
+          background: url("../images/uberrare.svg");
+
+          p {
+            filter: drop-shadow(0px 2px 0px rgba(59, 80, 95, 0.48));
+          }
+        }
+
+        .super__uber__rare__btn {
+          margin-left: -25px;
+          width: 343px;
+          background: url("../images/superuberrare.svg");
+
+          p {
+            filter: drop-shadow(0px 2px 0px #e0ac37);
+          }
+        }
+      }
+
+      // RESPONSIVE DESIGN
+      @include responsiveRarity();
+    }
+  }
+
+  &.rare {
+    background: radial-gradient(50% 50% at 50% 50%, #47f066 25.52%, #002727 100%);
+
+    .rarity__body--grid {
+      //background: url("../images/rarity/bigboxes/Rare.svg");
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='1268' height='510' viewBox='0 0 1268 510' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.97394 502.704L172.564 38.7327L1261 7.20569V466.015L9.97394 502.704Z' fill='white' stroke='%2347F066' stroke-width='14'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      .body__goober--attributes {
+        //background: url("../images/rarity/smallboxes/Rare.svg");
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='270' height='335' viewBox='0 0 270 335' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 328.5V6L264.5 24V296L5 328.5Z' fill='%23E8E8E8' stroke='%2347F066' stroke-width='10'/%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      @include responsiveRarity();
+    }
+  }
+
+  &.uber-rare {
+    background: radial-gradient(50% 50% at 50% 50%, #4edfff 25.52%, #00284a 100%);
+
+    .rarity__body--grid {
+      //background: url("../images/rarity/bigboxes/UberRare.svg");
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='1268' height='510' viewBox='0 0 1268 510' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.97394 502.704L172.564 38.7327L1261 7.20569V466.015L9.97394 502.704Z' fill='white' stroke='%234EDFFF' stroke-width='14'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      .body__goober--attributes {
+        //background: url("../images/rarity/smallboxes/UberRare.svg");
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='270' height='335' viewBox='0 0 270 335' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 328.5V6L264.5 24V296L5 328.5Z' fill='%23E8E8E8' stroke='%234EDFFF' stroke-width='10'/%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      @include responsiveRarity();
+    }
+  }
+
+  &.super-uber-rare {
+    background: radial-gradient(50% 50% at 50% 50%, #edf047 25.52%, #5b4200 100%);
+
+    .rarity__body--grid {
+      //background: url("../images/rarity/bigboxes/SuperUberRare.svg");
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='1268' height='510' viewBox='0 0 1268 510' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.97394 502.704L172.564 38.7327L1261 7.20569V466.015L9.97394 502.704Z' fill='white' stroke='%23EDF047' stroke-width='14'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      .body__goober--attributes {
+        //background: url("../images/rarity/smallboxes/SuperUberRare.svg");
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='270' height='335' viewBox='0 0 270 335' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 328.5V6L264.5 24V296L5 328.5Z' fill='%23E8E8E8' stroke='%23EDF047' stroke-width='10'/%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      @include responsiveRarity();
+    }
+  }
+}

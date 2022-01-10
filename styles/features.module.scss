@@ -1,0 +1,177 @@
+@import 'utils/essentials';
+@import 'utils/responsive_btns';
+
+.features__section {
+    background: url("../images/features/ChemicoTunnel.jpg") no-repeat bottom;
+    padding-bottom: 120px;
+    background-size: cover;
+    position: relative;
+
+    .blur__effect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000000a1;
+        z-index: 15;
+        backdrop-filter: blur(3px);
+        display: none;
+        transition: all 0.5s ease-out;
+    }
+
+    .blur__effect__toggled {
+        display: block;
+    }
+
+    .selected__feature {
+        position: relative;
+        z-index: 50;
+    }
+
+    .header__title {
+        background: url("../images/features/header.svg");
+        width: 545px;
+        height: 101px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        filter: drop-shadow(11px 8px #000000);
+        margin: auto;
+        transform: translateY(-20px);
+
+        p {
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 50px;
+            -webkit-text-stroke-width: 2.2px;
+            -webkit-text-stroke-color: #000000;
+            letter-spacing: -1px;
+            -webkit-text-fill-color: #ffffff;
+            font-family: "Black Han Sans", sans-serif;
+            position: relative;
+            margin-top: -7px;
+            filter: drop-shadow(0px 4px 0px rgba(107, 6, 0, 0.33));
+        }
+        // Add responsive buttons
+        @include responsiveBtn();
+    }
+    .features__grid--3cols, .features__grid--2cols {
+        display: grid;
+        grid-template-columns: repeat(3, 250px);
+        gap: 80px;
+        row-gap: 40px;
+        margin-top: 80px;
+        justify-content: center;
+        @include breakpoint(md_max) {
+            grid-template-columns: repeat(2, 250px);
+        }
+        @include breakpoint(xs) {
+            grid-template-columns: repeat(1, 250px);
+        }
+        .feature__col {
+            position: relative;
+            .feature {
+                width: 250px;
+                height: 234px;
+                background:url("../images/features/feature.svg");
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-size: cover;
+                background-repeat: no-repeat;
+                position: relative;
+                .close__modal {
+                    top: 22px;
+                    left: 28px;
+                    @include font-size(31);
+                    position: absolute;
+                    display: none;
+                }
+                .close__modal--enabled {
+                    display: block;
+                }
+                .feature__ilustration {
+    
+                }
+            } 
+            .feature_modal {
+                position: absolute;
+                left: 230px;
+                width: 484px;
+                padding: 20px;
+                z-index: 0;
+                background: #FFFBF3;
+                border: 7px solid #000000;
+                color: #000000;
+                cursor: text;
+                top: 50%;
+                z-index: 40;
+                transform: translateY(-50%);
+                display: none;
+                p {
+                    @include font-size(18);
+                }
+                @include breakpoint(lg_max) {
+                    position: absolute;
+                    width: 320px;
+                    padding: 20px;
+                    z-index: 0;
+                    background: #FFFBF3;
+                    border: 7px solid #000000;
+                    color: #000000;
+                    cursor: text;
+                    z-index: 40;
+                    display: none;
+                    text-align: center;
+                    left: -32px;
+                    right: unset;
+                    transform: none;
+                    top: unset;
+                }
+                @include breakpoint(md_max) {
+                    position: absolute;
+                    width: 320px;
+                    padding: 20px;
+                    z-index: 0;
+                    background: #FFFBF3;
+                    border: 7px solid #000000;
+                    color: #000000;
+                    cursor: text;
+                    z-index: 40;
+                    display: none;
+                    text-align: center;
+                    left: -32px;
+                    right: unset;
+                    transform: none;
+                    top: unset;
+                }
+                @include breakpoint(phone_xxxs) {
+                    width: 289px;
+                    padding: 10px;
+                    left: -18px;
+                }
+            }
+            .right__modal {
+                @include breakpoint(lg) {
+                    left: -451px;
+                }
+            }
+            .feature_modal--toggled {
+                display: block;
+            }
+        }
+    }
+    .features__grid--2cols {
+        grid-template-columns: repeat(2, 250px);
+        @include breakpoint(xs) {
+            grid-template-columns: repeat(1, 250px);
+        }
+        margin-top: 40px;
+        justify-content: center;
+    }
+}

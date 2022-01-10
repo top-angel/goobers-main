@@ -1,0 +1,82 @@
+name: Build & Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create SHA Container Tag
+        id: sha_tag
+        run: |
+          tag=$(cut -c 1-7 <<< $GITHUB_SHA)
+          echo "::set-output name=tag::$tag"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to Github Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          cache-from: type=registry,ref=ghcr.io/clucoininc/goobers:latest
+          cache-to: type=inline
+          tags: |
+            ghcr.io/clucoininc/goobers:${{ steps.sha_tag.outputs.tag }}
+            ghcr.io/clucoininc/goobers:latest
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create SHA Container Tag
+        id: sha_tag
+        run: |
+          tag=$(cut -c 1-7 <<< $GITHUB_SHA)
+          echo "::set-output name=tag::$tag"
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.SECRET_GITHUB_TOKEN }}
+          repository: clucoininc/kubernetes
+
+      - name: Authenticate with Kubernetes
+        uses: azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+
+      - name: Deploy to Kubernetes
+        uses: Azure/k8s-deploy@v1
+        with:
+          manifests: |
+              goobers/website/deployment.yaml
+          images: 'ghcr.io/clucoininc/goobers:${{ steps.sha_tag.outputs.tag }}'
+          kubectl-version: 'latest'
+          namespace: 'goobers'
+
+      - name: Purge Cloudflare Edge Cache
+        uses: jakejarvis/cloudflare-purge-action@master
+        env:
+          CLOUDFLARE_ZONE: f8ea6749649f2dd6e23e9a545968f81b
+          CLOUDFLARE_TOKEN: ${{ secrets.CF_TOKEN }}

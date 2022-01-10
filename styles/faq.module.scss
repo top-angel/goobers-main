@@ -1,0 +1,128 @@
+@import 'utils/essentials';
+@import 'utils/responsive_btns';
+.faq__section {
+    background: radial-gradient(50% 50% at 50% 50%, #47F066 0%, #39C75A 100%);
+    padding: 20px;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url("../images/faq/GoobersPattern.png");
+        left: 0;
+        top: 0;
+        background-position-y: -3px;
+    }
+    .header__title {
+        background: url("../images/goobery_header.svg");
+        width: 428px;
+        height: 73px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include breakpoint(md) {
+            background-size: cover;
+        }
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: -20px;
+        filter: drop-shadow(11px 8px #000000);
+        margin: auto;
+        margin-bottom: 20px;
+
+        p {
+            font-size: 40px;
+            font-size: 2.5rem;
+            line-height: 50px;
+            -webkit-text-stroke-width: 2.2px;
+            -webkit-text-stroke-color: #000000;
+            letter-spacing: -1px;
+            -webkit-text-fill-color: #ffffff;
+            font-family: "Black Han Sans", sans-serif;
+            position: relative;
+            margin-top: -3px;
+            filter: drop-shadow(0px 4px 0px rgba(107, 6, 0, 0.33));
+        }
+        // Add responsive buttons
+        @include responsiveBtn();
+        @include breakpoint(phone_xxxs) {
+            width: 271px;
+            height: 55px;
+        }
+    }
+    .readfull__btn {
+        background: url("../images/faq/faqbtn.svg");
+        width: 290px;
+        height: 56px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: -20px;
+        filter: drop-shadow(11px 8px #000000);
+        margin: auto;
+        margin-bottom: 20px;
+
+        p {
+            @include font-size(24);
+            line-height: 30px;
+            -webkit-text-stroke-width: 1.5px;
+            -webkit-text-stroke-color: #000000;
+            letter-spacing: -1px;
+            -webkit-text-fill-color: #ffffff;
+            font-family: "Black Han Sans", sans-serif;
+            position: relative;
+            margin-top: 7px;
+            margin-left: -42px;
+        }
+    }
+    .faq__container {
+        max-width: 1132px;
+        margin: auto;
+        padding: 0 10px;
+    }
+    .faq__dropdown {
+        margin-bottom: 20px;
+        padding: 20px 40px;
+        background: #FFFBF3;
+        border: 5px solid black;
+        filter: drop-shadow(12px 9px 0px #008820);
+        transition: all 0.2s ease-out;
+        .faq__dropdown--toggler {
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            p {
+                @include font-size(24);
+                line-height: 30px;
+                color: #000000;
+                font-family: "Black Han Sans", sans-serif;
+                position: relative;
+                @include breakpoint(xs) {
+                    @include font-size(18);
+                    line-height: 22px;
+                }
+            }
+        }
+        .faq__dropdown--content {
+            display: none;
+            p {
+                color: #000000;
+                @include font-size(18);
+                text-align: center;
+                @include breakpoint(xs) {
+                    @include font-size(16);
+                    line-height: 20px;
+                }
+            }
+        }
+        .dropdown__toggled {
+            display: block;
+        }
+    }
+}

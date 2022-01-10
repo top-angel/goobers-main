@@ -1,0 +1,383 @@
+@import "utils/essentials";
+
+.theorigin {
+    position: relative;
+    background: url("../images/blackbackground.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+    @include breakpoint(xs) {
+        padding: 40px 0;
+        padding-bottom: 100px;
+    }
+    overflow: hidden;
+    &::before {
+        content: "";
+        position: absolute;
+        background: url("../images/greenandgray.svg");
+        width: 998px;
+        height: 1185px;
+        background-repeat: no-repeat;
+        left: 0;
+        top: -400px;
+        z-index: 1;
+
+        // MIN WIDTH 768PX
+        @include breakpoint(sm) {
+            left: -117px;
+        }
+
+        // MIN WIDTH 992PX
+        @include breakpoint(md) {
+            left: -84px;
+        }
+
+        // MIN WIDTH 1200px
+        @include breakpoint(lg) {
+            left: 0;
+        }
+
+        // MAX WIDTH 768PX
+        @include breakpoint(xs) {
+            left: -117px;
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        background: url("../images/greenandgreyright.svg");
+        width: 604px;
+        height: 1266px;
+        background-repeat: no-repeat;
+        right: 0;
+        top: -400px;
+        z-index: 1;
+
+        // MIN WIDTH 768PX
+        @include breakpoint(sm) {
+            right: -92px;
+        }
+
+        // MIN WIDTH 992PX
+        @include breakpoint(md) {
+            right: -92px;
+        }
+
+        // MIN WIDTH 1200px
+        @include breakpoint(lg) {
+            right: 0;
+        }
+
+        // MAX WIDTH 768PX
+        @include breakpoint(xs) {
+            right: -92px;
+        }        
+    }
+    .origin__header--grid {
+        align-items: center;
+        justify-items: center;
+        position: relative;
+        z-index: 2;
+        max-width: 1260px;
+        margin: auto;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include breakpoint(sm) {
+            display: grid;
+        }
+
+        @include breakpoint(md) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        @include breakpoint(lg) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 100px;
+        }
+
+        .origin__header--title {
+            font-family: 'Black Han Sans', sans-serif;
+            max-width: 19ch;
+
+            @include breakpoint(sm) {
+                @include font-size(36);
+                line-height: 50px;
+            }
+
+            @include breakpoint(md) {
+                @include font-size(36);
+                line-height: 50px;
+            }
+    
+            @include breakpoint(lg) {
+                @include font-size(48);
+                line-height: 60px;
+            }
+            @include breakpoint(xs) {
+                @include font-size(32);
+                line-height: 42px;
+                margin-left: 20px;
+            }
+        }
+        .origin__capsule {
+            position: relative;
+            video {
+                max-width: 285px;
+                position: absolute;
+                z-index: 1;
+                @include breakpoint(sm) {
+                    max-width: 175px;
+                    right: 0;
+                    top: -23px;
+                }
+
+                @include breakpoint(md) {
+                    top: 85px;
+                    max-width: 215px;
+                    left: -80px;
+                }
+        
+                @include breakpoint(lg) {
+                    max-width: 285px;
+                    left: -109px;
+                }
+
+                @include breakpoint(xs) {
+                    max-width: 175px;
+                    right: 81px;
+                    top: -23px;
+                }
+                @include breakpoint(phone_max) {
+                    max-width: 175px;
+                    right: 2px;
+                    top: -54px;
+                }
+                @include breakpoint(phone_xxs) {
+                    max-width: 175px;
+                    right: 2px;
+                    top: -73px;
+                }
+                @include breakpoint(phone_xxxs) {
+                    max-width: 146px;
+                    right: -15px;
+                    top: -53px;
+                }           
+            }
+            .origin__description {
+                background: url("../images/bighexagon.svg");
+                background-repeat: no-repeat;
+                width: 513px;
+                height: 341px;
+                background-size: cover;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                filter: drop-shadow(11px 8px #000000);
+
+                @include breakpoint(xs) {
+                    margin: auto;
+                }        
+                
+
+                @include breakpoint(phone_xxs) {
+                    margin-left: -46px;
+                }
+
+                @include breakpoint(phone_xxxs) {
+                    margin-left: -95px;
+                }
+
+                .description__title {
+                    max-width: 31ch;
+                    font-size: 18px;
+                    margin-left: 10px;
+                    @include breakpoint(md) {
+                        max-width: 31ch;
+                        font-size: 18px;
+                        margin-left: 1px;
+                        margin-top: 8px;
+                        margin-bottom: 25px;
+                    }
+                    @include breakpoint(md_max) {
+                        max-width: 29ch;
+                        font-size: 18px;
+                        margin-left: -11px;
+                        margin-bottom: 4px;
+                        margin-top: 32px;
+                    }
+                    @include breakpoint(phone_xs) {
+                        max-width: 30ch;
+                        font-size: 18px;
+                        margin-left: 15px;
+                        margin-bottom: -2px;
+                        margin-top: 27px;
+                    }
+                }
+                .description__badge {
+                    background: url("../images/mintgoober.svg");
+                    width: 206px;
+                    height: 42px;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                    margin-right: -112px;
+                    filter: drop-shadow(12px 8px 0px #000000);
+                    cursor: pointer;
+                    @include breakpoint(xs) {
+                        margin-right: 68px;
+                        margin-top: 5px;
+                    }
+                    .badge__title {
+                        font-size: 18px;
+                        font-size: 1.125rem;
+                        -webkit-text-stroke-width: 1.3px;
+                        -webkit-text-stroke-color: #000000;
+                        -webkit-text-fill-color: #ffffff;
+                        text-shadow: 0px 2px 0px rgba(0, 107, 69, 0.56);
+                        font-family: "Black Han Sans", sans-serif;
+                        position: relative;
+                        margin-top: 6px;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+    .origin__body {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 1260px;
+        margin: 100px auto 0 auto;
+        @include breakpoint(phone_max) {
+            margin: 20px auto 0 auto;
+        }
+        .origin__body--box {
+            background: url("../images/Frame.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 961px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px 110px 40px 130px;
+            position: relative;
+
+            .show__more {
+                display: none;
+            }
+
+            @include breakpoint(lg) {
+                .show__more {
+                    display: block;
+                }
+            }
+
+            @include breakpoint(md_max) {
+                width: auto;
+            }
+
+            @include breakpoint(phone_max) {
+                width: 100%;
+                height: auto;
+                padding: 40px;
+                padding-left: 78px;
+                padding-bottom: 64px;
+                transform: translateX(-11px);
+            }
+
+            @include breakpoint(phone_xxs) {
+                width: 100%;
+                height: auto;
+                padding: 40px;
+                padding-left: 78px;
+                padding-bottom: 64px;
+                -webkit-transform: translateX(-11px);
+                -moz-transform: translateX(-11px);
+                transform: translateX(-12px);
+            }
+
+            @include breakpoint(phone_xxxs) {
+                width: 425px;
+                height: auto;
+                padding: 40px;
+                padding-left: 78px;
+                padding-bottom: 64px;
+                -webkit-transform: translateX(-11px);
+                -moz-transform: translateX(-11px);
+                transform: translateX(-11px);
+                justify-content: flex-start;
+            }
+
+            .goober__origin {
+                position: absolute;
+                left: -250px;
+                bottom: -91px;
+                display: none;
+
+                // MIN WIDTH 1200px
+                @include breakpoint(lg) {
+                    display: block;
+                }              
+            }
+            .body__title {
+                color: #000000;
+                font-size: 48px;
+                font-size: 3rem;
+                font-family: "Black Han Sans", sans-serif;
+                line-height: 60px;
+                margin-bottom: 20px;
+                @include breakpoint(phone_max) {
+                    @include font-size(26);
+                }
+                @include breakpoint(phone_max) {
+                    margin-bottom: 0;
+                }
+            }
+            .body__description {
+                color: #000000;
+                font-size: 18px;
+                font-size: 1.125rem;
+                line-height: 21.6px;
+                font-weight: 500;
+                font-style: italic;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                background: url("../images/Brain_Goober\ 1.png");
+                width: 129px;
+                height: 131px;
+                top: 20px;
+                right: -39px;
+                @include breakpoint(phone_max) {
+                    bottom: -80px;
+                    left: 50%;
+                    top: unset;
+                    right: unset;
+                }
+                @include breakpoint(phone_xxs) {
+                    bottom: -63px;
+                    left: 50%;
+                    top: unset;
+                    right: unset;
+                }
+            }
+        }
+    }
+    .bottom__effect {
+        position: absolute;
+        right: 0px;
+        bottom: inherit;
+        margin-top: -217px;
+    }
+}

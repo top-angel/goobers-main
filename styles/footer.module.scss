@@ -1,0 +1,28 @@
+.footer {
+  background-color: #292B2D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 125px;
+
+  div {
+    margin: 10px;
+    text-align: center;
+    font-size: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div>a {
+    color: #898989;
+  }
+  div {
+    svg {
+      path:nth-child(1) {
+        fill: #898989;
+      }
+    }
+  }
+}

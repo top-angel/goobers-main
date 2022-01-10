@@ -1,0 +1,569 @@
+@import "utils/essentials";
+@import "utils/responsive_btns";
+
+.mint__goobery,
+.mint__eth,
+.mint__claim {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1b0012;
+  flex-direction: column;
+
+  .mint__container--grid {
+    max-width: 1260px;
+    margin: auto;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "left__side right__side";
+    gap: 20px;
+
+    .mint__left--side {
+      grid-area: left__side;
+      .home__btn {
+        font-weight: bold;
+        @include font-size(18);
+        margin-bottom: 60px;
+        display: block;
+        color: #ffffff;
+        p {
+          display: flex;
+          align-items: center;
+          @include breakpoint(md_max) {
+            justify-content: center;
+          }
+        }
+        .icon {
+          margin-right: 10px;
+          font-size: 26px;
+        }
+      }
+    }
+
+    .mint__right--side {
+      grid-area: right__side;
+      position: relative;
+
+      .mint__icon--crypto {
+        position: absolute;
+        top: 0;
+        right: -86px;
+        z-index: -1;
+      }
+
+    }
+
+    // RESPONSIVE
+
+    @include breakpoint(lg_max) {
+      .mint__right--side {
+        .mint__icon--goober {
+          width: 400px;
+        }
+      }
+    }
+
+    @include breakpoint(md_max) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+        "right__side"
+        "left__side";
+      .mint__right--side {
+        .mint__icon--goober {
+          width: 234px;
+        }
+        .mint__icon--crypto {
+          width: 100%;
+          right: 5px;
+        }
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: url("../images/mint/CLU/GooLeft.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    @include breakpoint(sm) {
+      background-position-x: -55px;
+    }
+    @include breakpoint(md_max) {
+      background-position-x: -149px;
+    }
+    @include breakpoint(phone_xxs) {
+      background-position-x: -163px;
+      top: -118px;
+    }
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    content: "";
+    position: absolute;
+    background: url("../images/mint/CLU/GooRight.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+    width: 249px;
+    height: 100%;
+    @include breakpoint(sm) {
+      background-position-x: 53px;
+    }
+    @include breakpoint(md_max) {
+      background-position-x: 106px;
+    }
+    @include breakpoint(phone_xxs) {
+      background-position-x: 123px;
+    }
+  }
+
+  .mint__header {
+    .mint__title {
+      color: #ffffff;
+      font-size: 40px;
+      font-size: 2.5rem;
+      line-height: 50px;
+      font-family: "Black Han Sans", sans-serif;
+      position: relative;
+      text-align: center;
+      letter-spacing: 3px;
+    }
+
+    .mint__date {
+      text-align: center;
+      font-size: 18px;
+      font-size: 1.125rem;
+      line-height: 22px;
+      color: #ffffff;
+      margin-top: 20px;
+    }
+  }
+
+  .mint__body {
+    margin-top: 60px;
+
+    .mint__countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      .col__countdown {
+        text-align: center;
+
+        .value {
+          color: #ffffff;
+          font-size: 36px;
+          font-size: 2.25rem;
+          line-height: 30px;
+          font-family: "Black Han Sans", sans-serif;
+          position: relative;
+        }
+
+        .value__description {
+          font-size: 18px;
+          font-size: 1.125rem;
+          line-height: 22px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .mint__actions {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .mint__btn {
+        font-family: "Black Han Sans", sans-serif;
+        background: url("../images/mint/CLU/MintBtn.svg");
+        width: 211px;
+        height: 58px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        outline: none;
+        border: none;
+        text-transform: uppercase;
+        margin-top: 7px;
+        filter: drop-shadow(11px 8px #000000);
+
+        &:disabled {
+          background: url("../images/mint/DisabledBtn.svg");
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 100%;
+        }
+
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        span {
+          font-size: 24px;
+          font-size: 1.5rem;
+          color: #ffffff;
+          margin-top: 10px;
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: #000000;
+          letter-spacing: -1px;
+          -webkit-text-fill-color: #ffffff;
+        }
+      }
+
+      .mint__amount__goobers {
+        font-family: "Black Han Sans", sans-serif;
+        font-size: 24px;
+        font-size: 1.5rem;
+        color: #ffffff;
+        outline: none;
+        cursor: pointer;
+        width: 65px;
+        height: 41px;
+        background: #ff14b4;
+        border: 4px solid #9c005d;
+        filter: drop-shadow(11px 8px #000000);
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #000000;
+        letter-spacing: -1px;
+        -webkit-text-fill-color: #ffffff;
+
+        option {
+          font-size: 18px;
+          font-size: 1.125rem;
+        }
+      }
+    }
+
+    .mint__beneficiary {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      .beneficiary__title {
+        color: #ffffff;
+        @include font-size(18);
+        font-weight: 700;
+        span {
+          font-weight: 500;
+        }
+      }
+      .beneficiary__box {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        position: relative;
+        .tooltip__mint {
+          position: absolute;
+          left: 0;
+          width: 484px;
+          padding: 20px;
+          z-index: 0;
+          background: #000000;
+          border: 7px solid #ededed;
+          color: #ffffff;
+          cursor: text;
+          top: 50%;
+          z-index: 40;
+          transform: translateY(-50%);
+          display: none;
+          @include breakpoint(phone_xs) {
+            max-width: 300px;
+            transform: translateY(-100%);
+          }
+          .close__tooltip {
+            cursor: pointer;
+            background: none;
+            color: #ffffff;
+            border: none;
+            @include font-size(24);
+            outline: none;
+          }
+          p {
+            @include font-size(18);
+          }
+        }
+        .tooltip__mint--toggled {
+          display: block;
+        }
+        .beneficiary__input {
+          display: flex;
+          align-items: center;
+          input {
+            min-height: 36px;
+            border: 4px solid #c0c0c0;
+            border-right: none;
+            box-sizing: border-box;
+            outline: none;
+            min-width: 250px;
+            padding-left: 5px;
+            @include font-size(16);
+            font-weight: 500;
+            @include breakpoint(phone_xs) {
+              min-width: unset;
+              max-width: 160px;
+            }
+          }
+          &.error {
+            input {
+              border-color: red;
+            }
+          }
+          &.success {
+            input {
+              border-color: green;
+            }
+          }
+          button {
+            font-family: "Black Han Sans", sans-serif;
+            background: #ff14b4;
+            border: 4px solid #9c005d;
+            outline: none;
+            cursor: pointer;
+            @include font-size(24);
+            color: #ffffff;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: #000000;
+            -webkit-text-fill-color: #ffffff;
+            text-transform: uppercase;
+            min-height: 36px;
+            padding: 5px 10px;
+            line-height: 28px;
+            @include breakpoint(phone_xs) {
+              @include font-size(18);
+            }
+          }
+        }
+        .tooltip {
+          margin-left: 10px;
+          font-size: 24px;
+          cursor: pointer;
+          @include breakpoint(phone_xs) {
+            @include font-size(18);
+          }
+        }
+      }
+    }
+
+    .mint__gooober--left {
+      font-family: "Black Han Sans", sans-serif;
+      color: #ffffff;
+      text-align: center;
+      background: #000000;
+      border: 4px solid #ff14b4;
+      padding: 5px 5px;
+      font-size: 18px;
+      font-size: 1.125rem;
+      line-height: 22px;
+
+      span {
+        font-family: "Barlow", sans-serif;
+      }
+    }
+
+    .mint__informations {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .mint__amount--crypto {
+        font-size: 18px;
+        font-size: 1.125rem;
+        line-height: 22px;
+        font-weight: 500;
+      }
+
+      .mint__gooober--left {
+        font-family: "Black Han Sans", sans-serif;
+        color: #ffffff;
+        background: #000000;
+        border: 4px solid #ff14b4;
+        padding: 5px 5px;
+        font-size: 18px;
+        font-size: 1.125rem;
+        line-height: 22px;
+
+        span {
+          font-family: "Barlow", sans-serif;
+        }
+      }
+
+      .mint__gooober--max {
+        font-size: 18px;
+        font-size: 1.125rem;
+        line-height: 22px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.mint__eth {
+  background: #00011b;
+
+  &::before {
+    background: url("../images/mint/ETH/GooLeft.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include breakpoint(sm) {
+      background-position-x: -55px;
+    }
+    @include breakpoint(md_max) {
+      background-position-x: -149px;
+    }
+    @include breakpoint(phone_xxs) {
+      background-position-x: -163px;
+      top: -118px;
+    }
+  }
+
+  &::after {
+    background: url("../images/mint/ETH/GooRight.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include breakpoint(sm) {
+      background-position-x: 53px;
+    }
+    @include breakpoint(md_max) {
+      background-position-x: 106px;
+    }
+    @include breakpoint(phone_xxs) {
+      background-position-x: 123px;
+    }
+  }
+
+  .mint__body {
+    .beneficiary__input {
+      button {
+        background: #819eff !important;
+        border: 4px solid #4d6ac8 !important;
+      }
+    }
+    .mint__actions {
+      .mint__btn {
+        background: url("../images/mint/ETH/MintBtn.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      .mint__amount__goobers {
+        background: #819eff;
+        border: 4px solid #3c59ba;
+        filter: drop-shadow(11px 8px #000000);
+      }
+    }
+
+    .mint__informations {
+      .mint__gooober--left {
+        background: #000000;
+        border: 4px solid #819eff;
+      }
+    }
+  }
+}
+
+.mint__claim {
+  background: #00191B;
+
+  &::before {
+    background: url("../images/mint/Claim/GooLeft.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include breakpoint(sm) {
+      background-position-x: -55px;
+    }
+    @include breakpoint(md_max) {
+      background-position-x: -149px;
+    }
+    @include breakpoint(phone_xxs) {
+      background-position-x: -163px;
+      top: -118px;
+    }
+  }
+
+  &::after {
+    background: url("../images/mint/Claim/GooRight.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include breakpoint(sm) {
+      background-position-x: 53px;
+    }
+    @include breakpoint(md_max) {
+      background-position-x: 106px;
+    }
+    @include breakpoint(phone_xxs) {
+      background-position-x: 123px;
+    }
+  }
+
+  .mint__body {
+    .beneficiary__input {
+      button {
+        background: #819eff !important;
+        border: 4px solid #4d6ac8 !important;
+      }
+    }
+    .mint__actions {
+      .mint__btn {
+        background: url("../images/mint/Claim/MintBtn.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 224px;
+        height: 58px;
+      }
+
+      .mint__amount__goobers {
+        background: #819eff;
+        border: 4px solid #3c59ba;
+        filter: drop-shadow(11px 8px #000000);
+      }
+    }
+
+    .mint__informations {
+      .mint__gooober--left {
+        background: #000000;
+        border: 4px solid #47F066;
+        padding: 5px 20px;
+      }
+    }
+    .wallet__id {
+      margin-top: 20px;
+      p {
+        font-weight: bold;
+        color: #ffffff;
+        @include font-size(18);
+        @include breakpoint(phone_xxs) {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          word-break: break-all;
+        }
+        span {
+          font-weight: 400;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+  .mint__right--side {
+    .mint__icon--goober {
+      @include breakpoint(md_max) {
+        margin: auto;
+      }
+    }
+  }
+}

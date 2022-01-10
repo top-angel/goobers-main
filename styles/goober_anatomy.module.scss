@@ -1,0 +1,36 @@
+.goober__anatomy {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0;
+    z-index: 2;
+    &::before {
+        content: "";
+        position: absolute;
+        background: url("../images/background_effects/Goo1.svg");
+        width: auto;
+        height: 1185px;
+        background-repeat: no-repeat;
+        left: 0;
+        right: 0;
+        top: -400px;
+        z-index: 1;
+        background-size: contain;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        background: url("../images/background_effects/Goo2.svg");
+        width: 604px;
+        height: 1266px;
+        background-repeat: no-repeat;
+        right: 0;
+        top: -500px;
+        z-index: 1;
+        background-size: cover;
+    }
+    .anatomy__image {
+        z-index: 5;
+    }
+}

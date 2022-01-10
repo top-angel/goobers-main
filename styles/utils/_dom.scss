@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-family: 'Barlow', sans-serif; font-size: 16px; line-height: 1.5em;
+	@supports (font-variation-settings: normal) { font-family: 'Barlow', sans-serif; }
+}
+
+body { display: block; min-height: 100vh; margin: 0; text-rendering: optimizeSpeed; background: #121214; color: #ffffff;}  
+
+img, picture { max-width: 100%; display: block; }
+input, button, textarea, select { font: inherit; }
+
+strong { font-weight: 900;
+	@supports (font-variation-settings: normal) { font-variation-settings: 'wght' 900; }
+}
+
+em, i { font-style: italic;
+	@supports (font-variation-settings: normal) { font-variation-settings: 'slnt' -10; font-style: oblique 10deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within { scroll-behavior: auto; }
+	*, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+@media print {
+
+	a:link, a:visited { color: #00f; background: transparent; font-weight: bold; }
+	a:after > img { content: ""; }
+
+	h1, h2, h3, h4, h5, h6 { page-break-after: avoid; page-break-inside: avoid }
+	h1 + h2 { page-break-before: avoid; }
+
+	table, pre, img, svg, blockquote, a { break-inside: avoid; }
+
+	ul, ol, dl { page-break-before: avoid; }
+
+}
+
+svg { fill: currentColor; }
+
+a, button { cursor: pointer; }

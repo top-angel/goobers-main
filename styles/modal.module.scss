@@ -1,0 +1,87 @@
+@import "utils/essentials";
+
+.dialog * {
+    pointer-events: all;
+}
+
+.dialog {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100vh;
+    pointer-events: none;
+    .mint__modal--box {
+        width: 100%;
+        height: 100%;
+        display: -moz-box;
+        display: flex;
+        -moz-box-orient: vertical;
+        -moz-box-direction: normal;
+        flex-direction: column;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: center;
+        justify-content: center;
+        padding: 0 20px;
+        background: rgba(0, 0, 0, 0.6);
+        .mint__modal {
+            min-width: 440px;
+            max-width: 768px;
+            margin: 20px auto;
+            //height: 100%;
+            overflow-y: auto;
+            .modal__layout {
+                background: rgba(0, 0, 0, 0.81);
+                border: 7px solid #EDEDED;
+                filter: drop-shadow(9px 8px 0px #000000);
+                padding: 15px;
+                .close__modal {
+                    @include font-size(28);
+                    background: none;
+                    outline: none;
+                    border: none;
+                    color: #FFFFFF;
+                }
+                .modal__title {
+                    .title {
+                        font-family: "Black Han Sans", sans-serif;
+                        @include font-size(24);
+                        line-height: 30px;
+                        text-transform: uppercase;
+                        text-align: center;
+                    }
+                }
+                .wallet__connectors {
+                    margin: 20px 40px;
+                    .wallet {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        margin-bottom: 10px;
+                        justify-content: center;
+                        &:nth-child(1) {
+                            padding-bottom: 10px;
+                            border-bottom: 2px solid #FFFFFF;
+                        }
+                        .wallet__icon {
+
+                        }
+                        .wallet__name {
+                            margin-left: 12.5px;
+                            letter-spacing: 4px;
+                            @include font-size(16);
+                            color: #FFFFFF;
+                            font-weight: bold;
+                        }
+                        &:first-child .wallet__name {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

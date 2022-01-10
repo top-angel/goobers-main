@@ -1,0 +1,240 @@
+@import "utils/essentials";
+@import 'utils/responsive_btns';
+
+.team_box {
+    background: #39C75A;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 60px;
+
+
+    &::after {
+        position: absolute;
+        content: "";
+        background: url("../images/team/Intersect.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    .container__grid {
+        max-width: 1268px;
+        margin: auto;
+
+        .rarity__header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .header__title {
+                background: url("../images/rarityheader.svg");
+                width: 545px;
+                height: 101px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                margin-top: -20px;
+                filter: drop-shadow(11px 8px #000000);
+
+                p {
+                    font-size: 40px;
+                    font-size: 2.5rem;
+                    line-height: 50px;
+                    -webkit-text-stroke-width: 2.2px;
+                    -webkit-text-stroke-color: #000000;
+                    letter-spacing: -1px;
+                    -webkit-text-fill-color: #ffffff;
+                    font-family: "Black Han Sans", sans-serif;
+                    position: relative;
+                    margin-top: -7px;
+                    filter: drop-shadow(0px 4px 0px rgba(0, 107, 69, 0.56));
+                }
+
+                // Add responsive buttons
+                @include responsiveBtn();
+            }
+
+        }
+
+        .team__grid {
+            gap: 60px;
+            margin: 60px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 909px;
+            margin: 60px auto;
+
+            .team__box {
+                .header {
+                    background: url("../images/team/teambox.svg");
+                    min-height: 250px;
+                    width: 258px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    padding: 12px;
+                    filter: drop-shadow(15px 12px 0px #008820);
+
+                    .header__image {
+                        clip-path: polygon(1% 0%, 107% 0%, 791% -14%, 22% 85%);
+                    }
+                }
+
+                .description {
+                    display: flex;
+                    background: url("../images/team/teamabout.svg");
+                    background-repeat: no-repeat;
+                    background-size: inherit;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 252px;
+                    min-height: 78px;
+                    margin-top: -31px;
+                    margin-left: auto;
+                    z-index: 1;
+                    position: relative;
+
+
+                    .title {
+                        font-size: 24px;
+                        font-size: 1.5rem;
+                        line-height: 30px;
+                        letter-spacing: -1px;
+                        color: #FFFFFF;
+                        font-family: "Black Han Sans", sans-serif;
+                        position: relative;
+                    }
+
+                    .description__text {
+                        font-size: 18px;
+                        font-size: 1.125rem;
+                        color: #47F066;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            // ** RESPONSIVE DESIGN
+            @include breakpoint(md_max) {
+                grid-template-columns: repeat(3, 190px);
+                .team__box {
+                    .header {
+                        min-height: 229px;
+                        width: 197px;
+                    }
+                    .description {
+                        width: 202px;
+
+                        .title {
+                            @include font-size(18);
+                        }
+                    }
+                }
+            }
+            @include breakpoint(xs) {
+                grid-template-columns: repeat(2, 250px);
+                .team__box {
+                    .header {
+                        min-height: 229px;
+                        width: 250px;
+                    }
+                    .description {
+                        width: 212px;
+
+                        .title {
+                            @include font-size(18);
+                        }
+                    }
+                }
+            }
+
+            @include breakpoint(phone_max) {
+                grid-template-columns: repeat(2, 200px);
+                .team__box {
+                    .header {
+                        min-height: 229px;
+                        width: 200px;
+                    }
+                    .description {
+                        width: 180px;
+
+                        .title {
+                            @include font-size(18);
+                        }
+                    }
+                }
+            }
+
+            @include breakpoint(phone_xs) {
+                grid-template-columns: repeat(2, 170px);
+                gap: 40px;
+                .team__box {
+                    .header {
+                        min-height: 195px;
+                        width: 170px;
+                    }
+                    .description {
+                        width: 160px;
+
+                        .title {
+                            @include font-size(16);
+                        }
+                    }
+                }
+            }
+
+            @include breakpoint(phone_xxs) {
+                grid-template-columns: repeat(2, 150px);
+                gap: 30px;
+                .team__box {
+                    .header {
+                        min-height: 174px;
+                        width: 150px;
+                    }
+                    .description {
+                        width: 140px;
+
+                        .title {
+                            @include font-size(14);
+                            letter-spacing: 0;
+                            line-height: 18px;
+                        }
+                    }
+                }
+            }
+
+            @include breakpoint(phone_xxxs) {
+                grid-template-columns: repeat(2, 150px);
+                gap: 10px;
+                margin: 20px 0;
+                .team__box {
+                    .header {
+                        min-height: 165px;
+                        width: 137px;
+                    }
+                    .description {
+                        width: 148px;
+
+                        .title {
+                            @include font-size(14);
+                            letter-spacing: 0;
+                            line-height: 18px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,68 @@
+// Add position absolute
+@use 'sass:math';
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+@mixin antialias {
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-size($size: 12, $base: 16) {
+  font-size: $size + px;
+  font-size: math.div($size, $base) + rem;
+}
+
+@mixin full-height() {
+    height: 100vh;
+}
+
+@mixin breakpoint($class) {
+    @if $class == xs {
+      @media (max-width: 768px) { @content; }
+    }
+
+    @else if $class == phone_max {
+      @media (max-width: 625px) { @content; }
+    }
+
+    @else if $class == phone_xs {
+      @media (max-width: 568px) { @content; }
+    }
+
+    @else if $class == phone_xxs {
+      @media (max-width: 468px) { @content; }
+    }
+
+    @else if $class == phone_xxxs {
+      @media (max-width: 395px) { @content; }
+    }
+   
+    @else if $class == sm {
+      @media (min-width: 768px) { @content; }
+    }
+   
+    @else if $class == md {
+      @media (min-width: 992px) { @content; }
+    }
+    @else if $class == md_max {
+      @media (max-width: 992px) { @content; }
+    }
+   
+    @else if $class == lg {
+      @media (min-width: 1200px) { @content; }
+    }
+
+    @else if $class == lg_max {
+      @media (max-width: 1200px) { @content; }
+    }
+   
+    @else {
+      @warn "Breakpoint mixin supports: xs, sm, md, lg";
+    }
+  }
